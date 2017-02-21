@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: utf-8
+  host: localhost
+  pool: 5
+
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+
+development:
+  <<: *default
+  database: <%= ENV['ARGO_DB_DEVELOPMENT'] %>
+
+test:
+  <<: *default
+  database: <%= ENV['ARGO_DB_TEST'] %>
+
+production:
+  <<: *default
+  database: <%= ENV['ARGO_DB_PRODUCTION'] %>
+
+
+staging:
+  <<: *default
+  database: <%= ENV['ARGO_DB_STAGING'] %>
